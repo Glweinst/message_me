@@ -1,3 +1,48 @@
-<h1 class="center">This is the root route page</h1>
-
-<a href="https://google.com">Click here, you won't.</a>
+<h4 class="ui center aligned large icon header">
+  <i class="circular inverted red paper plane outline icon"></i>
+  G + L Chatroom
+</h4>
+<h4 class="ui horizontal divider header">
+  <i class="paper plane icon"></i>
+  Get your chat on
+</h4></br>
+<div class="ui two column grid">
+  <div class="twelve wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content" id="messages"">
+        <div class="ui feed" id="message-container">
+          <a class="ui red ribbon label">G + L Chatbox</a>
+          <%= render @messages %>
+        </div>
+      </div>
+      <div class="extra content">
+        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
+          <div class="field">
+           <div class="ui fluid icon input">
+            <%= f.text_field :body %>
+            <%= f.button '<i class="bordered inverted red edit icon"></i>'.html_safe %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="four wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content">
+        <div class="ui inverted vertical pointing menu">
+          <a class="active item">
+            Home
+          </a>
+          <a class="item">
+            Messages
+          </a>
+          <a class="item">
+            Friends
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
